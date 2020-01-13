@@ -12,7 +12,7 @@ using Task = System.Threading.Tasks.Task;
 
 namespace SenseNet.Identity.Experimental
 {
-    public class SnUserStore : IUserPasswordStore<SnIdentityUser>, IUserEmailStore<SnIdentityUser>
+    public class SnUserStore : IUserPasswordStore<SnIdentityUser>, IUserEmailStore<SnIdentityUser>, IUserPhoneNumberStore<SnIdentityUser>
     {
         #region Properties
         private Func<SnIdentityUser, Task<Node>> GetParentAsync { get; }
@@ -220,6 +220,32 @@ namespace SenseNet.Identity.Experimental
         }
         #endregion
 
+        #region IUserPhoneNumberStore<SnIdentityUser>
+        public Task SetPhoneNumberAsync(SnIdentityUser user, string phoneNumber, CancellationToken cancellationToken)
+        {
+            //TODO: implement SetPhoneNumberAsync
+            return Task.CompletedTask;
+        }
+
+        public Task<string> GetPhoneNumberAsync(SnIdentityUser user, CancellationToken cancellationToken)
+        {
+            //TODO: implement GetPhoneNumberAsync
+            return Task.FromResult(string.Empty);
+        }
+
+        public Task<bool> GetPhoneNumberConfirmedAsync(SnIdentityUser user, CancellationToken cancellationToken)
+        {
+            //TODO: implement GetPhoneNumberConfirmedAsync
+            return Task.FromResult(true);
+        }
+
+        public Task SetPhoneNumberConfirmedAsync(SnIdentityUser user, bool confirmed, CancellationToken cancellationToken)
+        {
+            //TODO: implement SetPhoneNumberConfirmedAsync
+            return Task.CompletedTask;
+        }
+        #endregion
+
         public void Dispose()
         {
         }
@@ -231,7 +257,7 @@ namespace SenseNet.Identity.Experimental
             var parent = RepositoryTools.CreateStructure(parentPath, "OrganizationalUnit");
             return Task.FromResult(parent?.ContentHandler ?? Node.LoadNode(parentPath));
         }
-
+        
         #endregion
     }
 }
