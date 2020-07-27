@@ -21,8 +21,8 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="2.2.0" />
-    <PackageReference Include="SenseNet.Tools" Version="3.2.0" />
-    <PackageReference Include="SenseNet.ContentRepository" Version="7.7.5" />
+    <PackageReference Include="SenseNet.Tools" Version="3.2.4" />
+    <PackageReference Include="SenseNet.ContentRepository" Version="7.7.13" />
   </ItemGroup>
 
 </Project>
